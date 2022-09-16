@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./todo-app.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <nav class="nav mb-7">
+        <a href="/Checkbox/check.html" class="nav-link">Чекбокс</a>
+        <a href="/Select/select.html" class="nav-link">Селект</a>
+        <a href="/Map/map.html" class="nav-link">Карту</a>
+        <a href="/Scrollbar/scrollbar.html" class="nav-link">Скроллбар</a>
+        <a href="/Form/form.html" class="nav-link">Формы</a>
+        <a href="/Tultype/tultype.html" class="nav-link">Тултип</a>
+    </nav>
+
+
+    <div class="container">
+        <h2 class="head__check-box">Категории:</h2>
+
+        <label class="label__block">Динозавры
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+        </label>
+        <label class="label__block">Медведи
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+        <label class="label__block">Косули
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+        <label class="label__block">Лисы
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+        <label class="label__block">Волки
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+        <label class="label__block">Олени и лоси
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <style>
+        .container {
+            background-color: white;
+            padding: 20px 30px 30px 30px;
+            width: 180px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        .head__check-box {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+        }
+
+        .label__block {
+            display: flex;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 32px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        /* Hide the browser's default checkbox */
+        .label__block input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+
+
+        /* On mouse-over, add a grey background color */
+        /* .label__block:hover input~.checkmark {
+            background-color: #CCB26E;
+;
+
+        } */
+
+        /* When the checkbox is checked, add a blue background */
+        .label__block input:checked~.checkmark {
+            border-color:  #CCB26E;
+;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .label__block input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .label__block .checkmark:after {
+            left: 5px;
+            top: 2px;
+            width: 4px;
+            height: 8px;
+            border: solid #CCB26E;
+            border-width: 0 1px 1px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .head__check-box {
+            margin-bottom: 20px;
+        }
+
+
+        .label__block {
+            display: flex;
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 32px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            /* background-color: #eee; */
+            border: 1px solid #999;
+            border-radius: 25%;
+        }
+    </style>
+
+
+</body>
+
+</html>

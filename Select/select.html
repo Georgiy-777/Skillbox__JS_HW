@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Include base CSS (optional) -->
+    <!-- <link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"
+/>
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/base.min.css"
+/> -->
+<link rel="stylesheet" href="choices.min.css">
+<link rel="stylesheet" href="/style.css">
+
+
+    <style>
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    color: #333333;
+}
+
+
+.choices {
+    width: 176px;
+    font-family: inherit;
+}
+
+.choices.is-open {
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.is-focused .choices__inner, .is-open .choices__inner {
+    border: 1px solid #CCB26E;
+}
+
+.choices[data-type*=select-one]:after {
+    height: 8px;
+    width: 8px;
+    z-index: 3;
+    top: 40%;
+    border: 1px solid #CCB26E;
+    border-width: 0 0 1px 1px;
+    transform: rotate(-45deg);
+    
+}
+
+.choices[data-type*=select-one].is-open:after {
+    top: 60%;
+    border: 1px solid #CCB26E;
+    border-width: 1px 1px 0 0;
+}
+
+.choices__inner {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.is-open .choices__inner {
+    border-radius: 10px;
+}
+
+.choices__placeholder {
+    opacity: 1;
+}
+
+.choices__list--dropdown .choices__placeholder {
+    display: none;
+}
+
+.choices__list--dropdown { /*костыль*/
+    /* padding-top: 30px;  */
+    top: calc(100% - 30px);
+}
+
+.choices__list--dropdown .choices__item--selectable {
+    padding-right: 10px;
+}
+
+.choices__list--dropdown.is-active {
+    border: 1px solid #CCB26E;
+    border-top-width: 0;
+    border-radius: 0 0 10px 10px;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="nav mb-7">
+        <a href="/Checkbox/check.html" class="nav-link">Чекбокс</a>
+        <a href="/Select/select.html" class="nav-link">Селект</a>
+        <a href="/Map/map.html" class="nav-link">Карту</a>
+        <a href="/Scrollbar/scrollbar.html" class="nav-link">Скроллбар</a>
+        <a href="/Form/form.html" class="nav-link">Формы</a>
+        <a href="/Tultype/tultype.html" class="nav-link">Тултип</a>
+    </nav>
+
+    <select class="js-choice">
+        <option value="">Материал</option>
+        <option>Древесина</option>
+        <option>Металл</option>
+        <option>Камень</option>
+        <option>Пластик</option>
+        <option>Композитный</option>
+        <option>Гипс</option>
+</select>
+ 
+  </select>
+    <script src="choices.min.js"></script>
+    <script>
+        // const element = document.querySelector('#selectCustom');
+        // const choices = new Choices(element, {
+        //     silent: false,
+        //     items: [],
+        //     choices: [],
+        //     removeItems: false,
+        //     removeItemButton: false,
+        //     editItems: false,
+        //     allowHTML: false,
+        //     duplicateItemsAllowed: true,
+        //     delimiter: ',',
+        //     paste: true,
+        //     searchEnabled: false,
+        //     searchChoices: false,
+        //     shouldSort: true,
+        //     shouldSortItems: true,
+        //     placeholder: false,
+        //     placeholderValue: null,
+
+        // });
+
+
+        const element = document.querySelector('.js-choice');
+
+const choices = new Choices(element, {
+    searchEnabled : false,
+    itemSelectText: ""
+})
+    </script>
+
+</body>
+
+</html>

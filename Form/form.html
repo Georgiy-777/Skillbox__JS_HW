@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .form-block {
+            max-width: 440px;
+            min-height: 410px;
+            background-color: black;
+            border: none;
+            border-radius: 10px;
+            opacity: 0.8;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 38px;
+        }
+
+        .form-block__input {
+            width: 380px;
+            height: 60px;
+            background: #FFFFFF;
+            border: 1px solid #FF5C00;
+            border-radius: 10px;
+            padding: 24px 20px;
+            margin-bottom: 31px;
+        }
+
+        .form-block__input::placeholder {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #999999;
+        }
+
+        .form-block__btn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 17px 53px;
+            background: #FF5C00;
+            border-radius: 10px;
+            color: #FFFFFF;
+        }
+
+        .is-invalid {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+            /* identical to box height */
+            display: flex;
+            align-items: center;
+            color: #FF5C00;
+            margin-left: 20px;
+            margin-bottom: 4px;
+        }
+    </style>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+
+</head>
+<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+
+<body>
+    <nav class="nav mb-7">
+        <a href="/Checkbox/check.html" class="nav-link">Чекбокс</a>
+        <a href="/Select/select.html" class="nav-link">Селект</a>
+        <a href="/Map/map.html" class="nav-link">Карту</a>
+        <a href="/Scrollbar/scrollbar.html" class="nav-link">Скроллбар</a>
+        <a href="/Form/form.html" class="nav-link">Формы</a>
+        <a href="/Tultype/tultype.html" class="nav-link">Тултип</a>
+    </nav>
+    <div class="container">
+
+        <form action="#" id="form" autocomplete="off">
+            <fieldset class="form-block">
+                <p>
+                    <input type="text" class="form-block__input form__input form-control" placeholder="Имя*" autocomplete="off" name="name"
+                    id="name" />
+                </p>
+                <p>
+                    <input type="tel" class="form-block__input form__input form-control" placeholder="Телефон*" autocomplete="off" name="tel"
+                    id="tel" />
+                </p>
+                <p>
+                    <input type="email" class="form-block__input form__input form-control" placeholder="E-mail*" autocomplete="off" name="email"
+                    id="email" />
+                </p>
+                
+                <button class="form-block__btn btn btn-primary" id="submit-btn">Заказать</button>
+            </fieldset>
+        
+        
+        </form>
+
+
+        <!-- <form id="basic-form" action="" method="post">
+            <fieldset class="form-block js-validate-error-label">
+
+                <p>
+                    <label> <input placeholder="Имя*" data-validate-field="name" class="form-block__input js-validate-error-label" name="name" /></label>
+                </p>
+
+                <p>
+                    <label> <input placeholder="Телефон*" data-validate-field="tel" data-validate-rulse="phone" class="form-block__input js-validate-error-label" type="tel" name="tel" /></label>
+                </p>
+
+                <p>
+                    <label> <input placeholder="E-mail*" data-validate-field="mail" class="form-block__input js-validate-error-label" type="mail" name="mail" /></label>
+                </p>
+
+                <p>
+                    <button class="form-block__btn js-validate-error-label" type="submit">Заказать</button>
+                </p>
+
+
+
+            </fieldset>
+        </form> -->
+    </div>
+
+    <script src="inputmask.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script> -->
+
+    <script>
+        var selector = document.querySelector("input[type='tel']");
+        var im = new Inputmask("+7 (999)-999-99-99")
+        im.mask(selector)
+ 
+        const validation = new JustValidate('#form');
+
+        validation
+            .addField('#name', [
+                {
+                    rule: 'minLength',
+                    value: 3,
+                },
+                {
+                    rule: 'maxLength',
+                    value: 30,
+                },
+            ])
+            .addField('#phone', [
+            {
+                    rule: 'minLength',
+                    value: 10,
+                },
+                {
+                    rule: 'maxLength',
+                    value: 10,
+                },
+            ])
+            .addField('#email', [
+                {
+                    rule: 'required',
+                    errorMessage: 'Email is required',
+                },
+                {
+                    rule: 'email',
+                    errorMessage: 'Email is invalid!',
+                },
+            ]);
+    </script>
+
+</body>
+
+</html>
